@@ -12,18 +12,18 @@
   {
    "path": ".github/workflows/ci.yml",
    "rule": "job-write",
-   "scope": "go-test",
+   "scope": "push-badges",
    "evidence": "contents: write",
    "issue": "https://github.com/reihlinstinct/parcel-coverage-audit/issues/43",
-   "reason": "CI job pushes updated coverage badges to the repo; job-scoped; reviewed."
+   "reason": "Single-purpose job that only publishes measured badge JSONs to the isolated badge-data branch; go-test no longer holds write access."
   },
   {
    "path": ".github/workflows/codeql.yml",
-   "rule": "top-level-write",
-   "scope": "workflow",
+   "rule": "job-write",
+   "scope": "analyze",
    "evidence": "security-events: write",
    "issue": "https://github.com/reihlinstinct/parcel-coverage-audit/issues/43",
-   "reason": "Pre-existing workflow-level write permission; tracked for job-level scoping in this issue."
+   "reason": "Job-scoped SARIF upload to GitHub code scanning; re-scoped from workflow level; same approved pattern as scorecard.yml analysis."
   }
  ]
 }

@@ -18,7 +18,8 @@
       "*.mod",
       "*.yml",
       ".gitignore",
-      "LICENSE"
+      "LICENSE",
+      "deps-inventory.json"
     ],
     "deny": [
       "*.py"

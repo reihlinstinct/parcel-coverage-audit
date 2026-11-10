@@ -1,29 +1,37 @@
 {
- "version": 1,
- "findings": [
-  {
-   "path": ".github/workflows/scorecard.yml",
-   "rule": "job-write",
-   "scope": "analysis",
-   "evidence": "security-events: write",
-   "issue": "https://github.com/reihlinstinct/parcel-coverage-audit/issues/43",
-   "reason": "Approved job-scoped SARIF upload to GitHub code scanning; no code or secrets write."
-  },
-  {
-   "path": ".github/workflows/ci.yml",
-   "rule": "job-write",
-   "scope": "push-badges",
-   "evidence": "contents: write",
-   "issue": "https://github.com/reihlinstinct/parcel-coverage-audit/issues/43",
-   "reason": "Single-purpose job that only publishes measured badge JSONs to the isolated badge-data branch; go-test no longer holds write access."
-  },
-  {
-   "path": ".github/workflows/codeql.yml",
-   "rule": "job-write",
-   "scope": "analyze",
-   "evidence": "security-events: write",
-   "issue": "https://github.com/reihlinstinct/parcel-coverage-audit/issues/43",
-   "reason": "Job-scoped SARIF upload to GitHub code scanning; re-scoped from workflow level; same approved pattern as scorecard.yml analysis."
-  }
- ]
+  "version": 1,
+  "findings": [
+    {
+      "path": ".github/workflows/scorecard.yml",
+      "rule": "job-write",
+      "scope": "analysis",
+      "evidence": "security-events: write",
+      "issue": "https://github.com/reihlinstinct/parcel-coverage-audit/issues/43",
+      "reason": "Approved job-scoped SARIF upload to GitHub code scanning; no code or secrets write."
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "rule": "job-write",
+      "scope": "push-badges",
+      "evidence": "contents: write",
+      "issue": "https://github.com/reihlinstinct/parcel-coverage-audit/issues/43",
+      "reason": "Single-purpose job that only publishes measured badge JSONs to the isolated badge-data branch; go-test no longer holds write access."
+    },
+    {
+      "path": ".github/workflows/codeql.yml",
+      "rule": "job-write",
+      "scope": "analyze",
+      "evidence": "security-events: write",
+      "issue": "https://github.com/reihlinstinct/parcel-coverage-audit/issues/43",
+      "reason": "Job-scoped SARIF upload to GitHub code scanning; re-scoped from workflow level; same approved pattern as scorecard.yml analysis."
+    },
+    {
+      "path": ".github/workflows/gemini-review.yml",
+      "rule": "job-write",
+      "scope": "gemini-review",
+      "evidence": "pull-requests: write",
+      "issue": "https://github.com/reihlinstinct/gemini-pr-review/issues/1",
+      "reason": "Owner-approved event-driven Gemini PR review; COMMENT-only advisory reviews, idempotent per head SHA. Tracked in reihlinstinct/gemini-pr-review#1."
+    }
+  ]
 }
